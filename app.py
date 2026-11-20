@@ -90,27 +90,34 @@ def build_feature_vector(payload: dict[str, Any]) -> np.ndarray:
     return np.array([values], dtype=np.float64)
 
 
-HTML_TEMPLATE = r"""<!DOCTYPE html>
-<html lang="en" data-theme="dark">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>DecisionTree Inference Studio</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --bg-1: #050816;
-      --bg-2: #120b2e;
-      --bg-3: #0b2545;
-      --accent-blue: #3b82f6;
-      --accent-purple: #8b5cf6;
-      --accent-cyan: #22d3ee;
-      --glass-bg: rgba(15, 23, 52, 0.58);
-      --glass-border: rgba(125, 211, 252, 0.22);
-      --glass-highlight: rgba(139, 92, 246, 0.28);
-      --text-main: #f1f5f9;
-      --text-muted: #94a3b8;
-      --input-bg: rgba(8, 13, 32, 0.72);
-      --input-border: rgba(148, 163, 184, 0
+HTML_LINES = [
+    '<!DOCTYPE html>',
+    '<html lang="en" data-theme="dark">',
+    '<head>',
+    '  <meta charset="UTF-8" />',
+    '  <meta name="viewport" content="width=device-width, initial-scale=1.0" />',
+    '  <title>DecisionTree Inference Studio</title>',
+    '  <link rel="preconnect" href="https://fonts.googleapis.com">',
+    '  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>',
+    '  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">',
+    '  <style>',
+    '    :root {',
+    '      --bg-1: #050816;',
+    '      --bg-2: #120b2e;',
+    '      --bg-3: #0b2545;',
+    '      --accent-blue: #3b82f6;',
+    '      --accent-purple: #8b5cf6;',
+    '      --accent-cyan: #22d3ee;',
+    '      --glass-bg: rgba(15, 23, 52, 0.58);',
+    '      --glass-border: rgba(125, 211, 252, 0.22);',
+    '      --glass-highlight: rgba(139, 92, 246, 0.28);',
+    '      --text-main: #f1f5f9;',
+    '      --text-muted: #94a3b8;',
+    '      --input-bg: rgba(8, 13, 32, 0.72);',
+    '      --input-border: rgba(148, 163, 184, 0.24);',
+    '      --shadow-card: 0 20px 50px rgba(2, 6, 23, 0.65), 0 0 28px rgba(59, 130, 246, 0.14);',
+    '      --success-bg: rgba(16, 185, 129, 0.15);',
+    '      --success-border: rgba(52, 211, 153, 0.45);',
+    '      --success-text: #6ee7b7;',
+    '      --error-bg: rgba(244, 63, 94, 0.15);',
+    '      --error-border:
